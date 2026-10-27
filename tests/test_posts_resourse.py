@@ -30,11 +30,8 @@ class TestsGetPostsList:
         r = posts_client_get_all_posts
 
         for post in r.json():
-            for key in post:
-                try:
-                    assert type(post[key]) == mandatory_keys_and_data_types[key]
-                except KeyError:
-                    continue
+            for key, data_type in mandatory_keys_and_data_types.items():
+                assert type(post[key]) == data_type
 
 class TestGetOnePost:
     @pytest.mark.positive
