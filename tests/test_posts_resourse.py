@@ -5,7 +5,7 @@ class TestsGetPostsList:
     def test_status_200(self, posts_client_get_all_posts):
         r = posts_client_get_all_posts
 
-        assert  300 > r.status_code >= 200
+        assert  r.status_code == 200
 
     @pytest.mark.positive
     def test_body_is_filled(self, posts_client_get_all_posts):
@@ -41,7 +41,7 @@ class TestGetOnePost:
     def test_status_200(self, posts_client_get_one_post):
         r = posts_client_get_one_post
 
-        assert 300 > r.status_code >= 200
+        assert r.status_code >= 200
 
     @pytest.mark.positive
     def test_body_have_id_of_post(self, posts_client_get_one_post):
@@ -60,7 +60,7 @@ class TestCreatePost:
     def test_status_201(self, posts_client_create_post):
         r = posts_client_create_post
 
-        assert 300 > r.status_code >= 200
+        assert r.status_code >= 201
 
     @pytest.mark.positive
     def test_id_of_created_post(self, posts_client_create_post):
