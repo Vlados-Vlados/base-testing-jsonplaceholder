@@ -22,7 +22,7 @@ class TestsGetPostsList:
         for post in r.json():
             post_keys = set(post.keys())
             assert mandatory_keys.issubset(post_keys), (
-                f"\nMissing mandatory keys: {mandatory_keys - post_keys} in post with id:{post[id]}"
+                f"\nMissing mandatory keys: {mandatory_keys - post_keys} in post with id:{post["id"]}"
                 )
 
     @pytest.mark.positive
