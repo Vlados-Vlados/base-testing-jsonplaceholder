@@ -28,6 +28,7 @@ class TestGetCommentsOfPost:
     def test_comments_of_nonexist_post(self, comments_client_get_comment_of_nonexist_post):
         r = comments_client_get_comment_of_nonexist_post
 
+        assert r.status_code == 200 # особенность поведения сервиса фальш апи. Данные коммента не возвращаются, он как бы не создан, но ответ успешный(статус код)
         assert not r.json()
 
 
