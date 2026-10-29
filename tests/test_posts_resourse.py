@@ -14,8 +14,8 @@ class TestsGetPostsList:
         assert any(r.json())
 
     @pytest.mark.positive
-    def test_all_posts_have_mandatory_keys(self, posts_client_get_all_posts, mandatory_keys_and_data_types):
-        mandatory_keys = set(mandatory_keys_and_data_types.keys())
+    def test_all_posts_have_mandatory_keys(self, posts_client_get_all_posts, posts_mandatory_keys_and_data_types):
+        mandatory_keys = set(posts_mandatory_keys_and_data_types.keys())
 
         r = posts_client_get_all_posts
 
@@ -26,11 +26,11 @@ class TestsGetPostsList:
                 )
 
     @pytest.mark.positive
-    def test_all_posts_mandatory_keys_data_type(self, posts_client_get_all_posts, mandatory_keys_and_data_types):
+    def test_all_posts_mandatory_keys_data_type(self, posts_client_get_all_posts, posts_mandatory_keys_and_data_types):
         r = posts_client_get_all_posts
 
         for post in r.json():
-            for key, data_type in mandatory_keys_and_data_types.items():
+            for key, data_type in posts_mandatory_keys_and_data_types.items():
                 assert type(post[key]) == data_type
 
 class TestGetOnePost:
