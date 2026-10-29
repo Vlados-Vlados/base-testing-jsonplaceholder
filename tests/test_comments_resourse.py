@@ -45,7 +45,7 @@ class TestCreateComment:
         assert r.json()["id"] == 501
 
     @pytest.mark.negative
-    def test_status_201(self, comments_client_create_comment_without_mandatory_key):
+    def test_without_mandatory_key(self, comments_client_create_comment_without_mandatory_key):
         r = comments_client_create_comment_without_mandatory_key
 
         assert r.status_code == 201 #тест с целю покрыть сервис негативными проверками. Но фактически, несмотря на отсутствие важного поля в запросе, сервис возвращает успешный ответ, тк это фальш Rest api
